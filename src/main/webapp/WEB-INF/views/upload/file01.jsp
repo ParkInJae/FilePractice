@@ -16,5 +16,14 @@
 		content :<textarea name="content"></textarea><br> <!-- 내용 생성 html -->
 		<button>저장</button>
 	</form>
+	
+	
+	
+	<h2> file 화면</h2>
+<form>
+ 			file : <input type="file" name="file02">
+ 			title : <input type="text" neam="title02">
+ 			content : <textarea name="content"></textarea>
+</form>
 </body>
 </html>
