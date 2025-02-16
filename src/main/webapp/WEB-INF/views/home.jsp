@@ -18,7 +18,7 @@
 	<a href="${pageContext.request.contextPath}/file/upload01.do" style="color:black"> 단일 파일 업로드 </a><br>
 	
 	<!--  file 화면 보여주기 get요청-->
-	<a href="${pageContext.request.contextPath}file/upload02.do"> 파일 업로드 02  </a>
+	<a href="${pageContext.request.contextPath}/file/upload02.do"> 파일 업로드 02  </a>
 	
 </body>
 </html>

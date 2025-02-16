@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
@@ -23,11 +23,21 @@
 			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
+	<!-- 멀티파트 요청(파일 업로드 요청) 처리할 때 임시 저장할 폴더   -->
+		<multipart-config>
+			<location>C:\upload</location>
+			<max-file-size>20971520</max-file-size> <!-- 최대크기 20M -->
+			<max-request-size>41943040</max-request-size> <!-- 한번에 올릴 최대 크기 40M -->
+			<file-size-threshold>20971520</file-size-threshold> <!-- 메모리 -->
+		</multipart-config>
+	
 	</servlet>
 		
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
 
+	
 </web-app>
