@@ -26,6 +26,8 @@ HTTP 메서드 활용
 GET: 데이터 조회
 POST: 데이터 생성
 PUT/PATCH: 데이터 수정
+PUT >> 전체 내용을 수정할 때 사용 
+PATCH >> 일부 내용을 수정할 때 사용
 DELETE: 데이터 삭제
 들어오는 URI는 명사로 표현 
   
@@ -60,6 +62,7 @@ DELETE: 데이터 삭제
         logger.info("{path}",path);
         
         // 저장 폴더가 없으면 생성합니다.
+        // File 타입 메소드 정리 https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=saseo90&logNo=221267786511       
         File dir = new File(path);
         if (!dir.exists()) { // 정해진 경로가 없으면 새로 만들어라 
             dir.mkdirs();
@@ -67,10 +70,11 @@ DELETE: 데이터 삭제
         
         // 파일이 존재하는지 확인한 후,
         // UUID를 이용해 파일명 중복을 방지하며 저장합니다.
-        if (!file01.getOriginalFilename().isEmpty()) {
+        // new File(디렉토리 경로, 해당 디렉토리 내에서 파일 이름을 지정 )
+        if (!file01.getOriginalFilename().isEmpty()) { // 만약 매개변누로 들어오는 MultiFile 타입의 file01이름이 비어있지 않다면
             UUID uuid = UUID.randomUUID();  // 랜덤으로 변환 
-            String fileRealName = uuid.toString() + file01.getOriginalFilename();
-            file01.transferTo(new File(path, fileRealName));
+            String fileRealName = uuid.toString() + file01.getOriginalFilename(); // 랜덤 UUID와 기존 파일 이름을 결합하여 새로운 파일 이름 생성  
+            file01.transferTo(new File(path, fileRealName)); // 새로운 파일 이름을 사용하여 지정된 path에 저장한다.
         }
         
         // 업로드 후 루트 경로로 리다이렉트(예: 메인 페이지)
