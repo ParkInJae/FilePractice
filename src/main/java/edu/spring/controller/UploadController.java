@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-@Controller  // 만약 API응답(JSON 등)을 하고 싶다면 @RestController를 사용 , 그러나 jsp 뷰를 반환하므로@Controller를 사용함 
+@Controller  // 만약 API응답(JSON 등)을 하고 싶다면 @RestController를 사용 , 그러나 jsp 뷰를 반환하므로@Controller를 사용함
+// Spring에서 JSP와 같은 뷰 화면을 불러올 때는 @controller가 맞음
 public class UploadController {
 /*
  @GetMapping, @PostMapping, @PutMapping, @DeleteMapping을 사용하려면 Spring 4.3 이상부터 사용할 수 있음
